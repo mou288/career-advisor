@@ -1,0 +1,177 @@
+%% TEMPLATE: fresher
+%% USE WHEN: 0-2 years experience, project-heavy, education prominent
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Software Engineer}
+\def\VarSummary{%
+  Motivated software engineering graduate with hands-on experience building
+  projects in \VarTopSkills. Eager to contribute to a collaborative team and
+  grow through real-world challenges.
+}
+\def\VarTopSkills{Python, React, Node.js}   %% top 3 for summary sentence
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color (dark slate) ───────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+%% Contact row item
+\newcommand{\contactitem}[1]{\small #1}
+
+%% Education entry
+%% \eduentry{Institution}{Degree, Field}{Status}{Year range}
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+%% Project entry
+%% \projectentry{Name}{Tech Stack}{URL}{bullets}
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+%% Work entry (minimal for fresher — internships etc.)
+%% \workentry{Company}{Position}{Duration}{bullets}
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+%% ── No page number ──────────────────────────────────────────────────────────
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+%% FILL: repeat \eduentry for each education item
+%% \eduentry{Institution}{Degree, Field}{Completed / In Progress}{Year}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2020 -- 2024}
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+\section{Skills}
+%% FILL: comma-separated list grouped loosely
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}   & Python, JavaScript, TypeScript \\[2pt]
+  \textbf{Frameworks}  & React, Node.js, Express, Django \\[2pt]
+  \textbf{Databases}   & PostgreSQL, MongoDB, Redis \\[2pt]
+  \textbf{Tools}       & Git, Docker, GitHub Actions \\
+\end{tabularx}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+\section{Projects}
+%% FILL: repeat \projectentry for each project
+%% \projectentry{Name}{Tech Stack}{GitHub URL}{bullet list}
+\projectentry{Project Name}{Python, React, PostgreSQL}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Built a full-stack web application that does X, reducing Y by Z\%.
+    \item Implemented feature A using technology B, improving performance by C.
+  \end{itemize}
+}
+
+\projectentry{Another Project}{Node.js, MongoDB}{https://github.com/username/repo2}{%
+  \begin{itemize}
+    \item Developed REST API handling N requests/day with sub-100ms latency.
+    \item Integrated third-party service to automate X workflow end-to-end.
+  \end{itemize}
+}
+
+%% ── Work Experience (internships) ───────────────────────────────────────────
+%% OMIT this section entirely if no work experience exists
+\section{Work Experience}
+%% FILL: repeat \workentry for each role
+\workentry{Company Name}{Software Engineer Intern}{Jun 2023 -- Aug 2023}{%
+  \begin{itemize}
+    \item Contributed to X feature used by N users, reducing support tickets by Y\%.
+    \item Wrote unit tests achieving 85\% coverage for the payments module.
+  \end{itemize}
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

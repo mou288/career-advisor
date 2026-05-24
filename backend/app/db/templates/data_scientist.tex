@@ -1,0 +1,169 @@
+%% TEMPLATE: data_scientist
+%% USE WHEN: Python/ML/notebooks dominant, data-heavy roles
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Data Scientist}
+\def\VarSummary{%
+  Data scientist with experience building end-to-end ML pipelines and
+  translating business problems into data-driven solutions using \VarTopSkills.
+  Comfortable working across the full lifecycle — from data wrangling and
+  experimentation to model deployment and monitoring in production.
+}
+\def\VarTopSkills{Python, PyTorch, scikit-learn}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+%% Project entry for DS — emphasizes dataset, model, metric
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+%% NOTE: DS skills table separates ML from data engineering and tools
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}      & Python, R, SQL \\[2pt]
+  \textbf{ML / DL}        & PyTorch, TensorFlow, scikit-learn, XGBoost, HuggingFace \\[2pt]
+  \textbf{Data}           & Pandas, NumPy, Spark, dbt, Airflow \\[2pt]
+  \textbf{Infrastructure} & AWS SageMaker, MLflow, Docker, Git \\
+\end{tabularx}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+%% NOTE: DS projects must mention dataset size, model type, and key metric (accuracy, F1, AUC etc.)
+\section{Projects}
+\projectentry{Project Name}{PyTorch, HuggingFace, Python}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Fine-tuned BERT on N-sample dataset achieving F1 of 0.91 on held-out test set.
+    \item Deployed model as REST API on AWS SageMaker, serving N predictions/day.
+  \end{itemize}
+}
+
+\projectentry{Another Project}{scikit-learn, Pandas, XGBoost}{https://github.com/username/repo2}{%
+  \begin{itemize}
+    \item Built churn prediction model on N rows of transactional data, AUC 0.87.
+    \item Automated feature engineering pipeline reducing prep time from 6h to 20min.
+  \end{itemize}
+}
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+\section{Work Experience}
+%% NOTE: bullets should mention business impact of models, not just technical details
+\workentry{Company Name}{Data Scientist}{Feb 2022 -- Present}{%
+  \begin{itemize}
+    \item Built recommendation engine increasing average order value by 18\%.
+    \item Developed anomaly detection model flagging N fraudulent transactions/day.
+    \item Collaborated with engineering to productionize 4 models via MLflow and Docker.
+  \end{itemize}
+}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{M.Tech, Data Science}{Completed}{2020 -- 2022}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2016 -- 2020}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

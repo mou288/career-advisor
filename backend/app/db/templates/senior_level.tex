@@ -1,0 +1,161 @@
+%% TEMPLATE: senior_engineer
+%% USE WHEN: 6+ years, leadership, architecture decisions, team scope
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Senior Software Engineer}
+\def\VarSummary{%
+  Senior engineer with \VarYears\ years of experience building and scaling
+  production systems in \VarTopSkills. Proven ability to lead technical
+  initiatives, mentor engineers, and drive measurable business outcomes through
+  sound architecture and engineering discipline.
+}
+\def\VarYears{8}
+\def\VarTopSkills{distributed systems, Go, AWS}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=2pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+%% Work entry — rich bullets, leadership emphasis
+%% \workentry{Company}{Position}{Duration}{bullets}
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{8pt}
+}
+
+%% Education entry
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+%% NOTE: bullets must emphasize scope, team size, business impact, architecture decisions
+\section{Work Experience}
+\workentry{Company Name}{Senior Software Engineer}{Mar 2020 -- Present}{%
+  \begin{itemize}
+    \item Led architecture of X system serving N million users, reducing infra cost by \$Y/month.
+    \item Mentored a team of N engineers, conducting design reviews and establishing coding standards.
+    \item Drove migration from monolith to microservices, cutting deployment time from N hours to M minutes.
+    \item Defined technical roadmap for Q3--Q4 in collaboration with product and engineering leadership.
+  \end{itemize}
+}
+
+\workentry{Previous Company}{Software Engineer}{Jan 2017 -- Feb 2020}{%
+  \begin{itemize}
+    \item Owned the payments service end-to-end, processing \$N million in transactions monthly.
+    \item Reduced p99 latency by 60\% through query optimization and strategic caching.
+    \item Onboarded and mentored 3 junior engineers joining the platform team.
+  \end{itemize}
+}
+
+\workentry{Earlier Company}{Junior Software Engineer}{Jun 2015 -- Dec 2016}{%
+  \begin{itemize}
+    \item Built internal tooling adopted across 4 teams, eliminating N hours of manual work per sprint.
+  \end{itemize}
+}
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}      & Go, Python, Java, TypeScript \\[2pt]
+  \textbf{Architecture}   & Microservices, Event-driven, REST, gRPC \\[2pt]
+  \textbf{Infrastructure} & AWS, Kubernetes, Terraform, Prometheus \\[2pt]
+  \textbf{Databases}      & PostgreSQL, Cassandra, Redis, Elasticsearch \\
+\end{tabularx}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2011 -- 2015}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+%% OMIT if work experience is rich enough to fill the page
+%% Include only if project demonstrates technical depth not visible in work history
+%% \section{Projects}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

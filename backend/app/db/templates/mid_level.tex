@@ -1,0 +1,170 @@
+%% TEMPLATE: mid_level
+%% USE WHEN: 2-6 years experience, solid work history, some notable projects
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Software Engineer}
+\def\VarSummary{%
+  Software engineer with \VarYears\ years of experience designing and shipping
+  production systems in \VarTopSkills. Track record of owning features
+  end-to-end and collaborating effectively across teams.
+}
+\def\VarYears{4}
+\def\VarTopSkills{Python, Go, PostgreSQL}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+%% Work entry — primary section for mid-level
+%% \workentry{Company}{Position}{Duration}{bullets}
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+%% Education entry
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+%% Project entry — concise for mid-level
+%% \projectentry{Name}{Tech Stack}{URL}{bullets}
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+\section{Work Experience}
+%% FILL: most recent first
+\workentry{Company Name}{Software Engineer}{Jan 2022 -- Present}{%
+  \begin{itemize}
+    \item Designed and shipped feature X used by N users, improving metric Y by Z\%.
+    \item Reduced API response time by 40\% by refactoring the data access layer.
+    \item Collaborated with product and design to define requirements for module A.
+  \end{itemize}
+}
+
+\workentry{Previous Company}{Junior Software Engineer}{Jun 2020 -- Dec 2021}{%
+  \begin{itemize}
+    \item Built internal tooling that automated X, saving the team N hours per week.
+    \item Wrote and maintained integration tests covering the core payment flows.
+  \end{itemize}
+}
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}   & Python, Go, JavaScript, TypeScript \\[2pt]
+  \textbf{Frameworks}  & FastAPI, Express, React \\[2pt]
+  \textbf{Databases}   & PostgreSQL, Redis, MongoDB \\[2pt]
+  \textbf{Tools}       & Docker, Kubernetes, GitHub Actions, Terraform \\
+\end{tabularx}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+\section{Projects}
+%% FILL: 1-2 most impactful projects only
+\projectentry{Notable Project}{Go, PostgreSQL, Redis}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Built X system handling N concurrent users with 99.9\% uptime.
+  \end{itemize}
+}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2016 -- 2020}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

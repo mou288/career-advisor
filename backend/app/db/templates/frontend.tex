@@ -1,0 +1,169 @@
+%% TEMPLATE: frontend
+%% USE WHEN: React/Vue/Angular dominant, UI/UX focused roles
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Frontend Engineer}
+\def\VarSummary{%
+  Frontend engineer with experience building responsive, performant web
+  applications using \VarTopSkills. Focused on delivering clean user
+  experiences backed by solid engineering — accessible, fast, and maintainable.
+}
+\def\VarTopSkills{React, TypeScript, Next.js}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+%% Work entry
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+%% Education entry
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+%% Project entry — prominent for frontend, include live URL if available
+%% \projectentry{Name}{Tech Stack}{URL}{bullets}
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+%% NOTE: frontend skills table separates UI from tooling clearly
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}   & JavaScript, TypeScript, HTML5, CSS3 \\[2pt]
+  \textbf{Frameworks}  & React, Next.js, Vue.js, Tailwind CSS \\[2pt]
+  \textbf{Testing}     & Jest, React Testing Library, Cypress \\[2pt]
+  \textbf{Tools}       & Webpack, Vite, Git, Figma, Storybook \\
+\end{tabularx}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+%% NOTE: frontend projects should mention performance metrics, user count, or visual scope
+\section{Projects}
+\projectentry{Project Name}{React, TypeScript, Tailwind CSS}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Built responsive UI with N components, achieving Lighthouse score of 97 on mobile.
+    \item Reduced initial bundle size by 35\% through code splitting and lazy loading.
+  \end{itemize}
+}
+
+\projectentry{Another Project}{Next.js, GraphQL}{https://github.com/username/repo2}{%
+  \begin{itemize}
+    \item Implemented server-side rendering cutting Time to First Byte from 800ms to 120ms.
+    \item Built accessible component library used across 3 internal products.
+  \end{itemize}
+}
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+\section{Work Experience}
+\workentry{Company Name}{Frontend Engineer}{Jan 2022 -- Present}{%
+  \begin{itemize}
+    \item Rebuilt the checkout flow in React, increasing conversion rate by 12\%.
+    \item Established component library and design system adopted by 5 engineers.
+    \item Improved Core Web Vitals scores across the marketing site — LCP under 2.5s.
+  \end{itemize}
+}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2018 -- 2022}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

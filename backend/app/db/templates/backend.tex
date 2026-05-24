@@ -1,0 +1,167 @@
+%% TEMPLATE: backend
+%% USE WHEN: APIs, databases, systems, server-side dominant roles
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{Backend Engineer}
+\def\VarSummary{%
+  Backend engineer experienced in designing reliable, scalable server-side
+  systems using \VarTopSkills. Strong focus on API design, data modeling,
+  and system performance under load.
+}
+\def\VarTopSkills{Python, PostgreSQL, AWS}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+%% NOTE: bullets should include throughput, latency, uptime, data volume metrics
+\section{Work Experience}
+\workentry{Company Name}{Backend Engineer}{Jan 2021 -- Present}{%
+  \begin{itemize}
+    \item Built REST API serving N million requests/day with p99 latency under 80ms.
+    \item Designed PostgreSQL schema for X domain, optimizing queries reducing load by 45\%.
+    \item Implemented async job queue using Redis, processing N background tasks per minute.
+    \item Set up monitoring with Prometheus and Grafana, reducing MTTR from 2h to 20min.
+  \end{itemize}
+}
+
+\workentry{Previous Company}{Software Engineer}{Aug 2019 -- Dec 2020}{%
+  \begin{itemize}
+    \item Developed internal data pipeline ingesting N GB/day from third-party APIs.
+    \item Migrated legacy MySQL database to PostgreSQL with zero downtime.
+  \end{itemize}
+}
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+%% NOTE: backend skills table emphasizes databases and infra clearly
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Languages}      & Python, Go, Java \\[2pt]
+  \textbf{Frameworks}     & FastAPI, Django, Spring Boot \\[2pt]
+  \textbf{Databases}      & PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch \\[2pt]
+  \textbf{Infrastructure} & AWS (EC2, RDS, SQS, Lambda), Docker, Kubernetes \\
+\end{tabularx}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+\section{Projects}
+%% NOTE: backend projects should highlight scale, architecture decisions, data handling
+\projectentry{Project Name}{Python, FastAPI, PostgreSQL}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Implemented event-driven architecture processing N events/sec with Kafka.
+    \item Achieved 99.95\% uptime over 6 months with circuit breaker and retry logic.
+  \end{itemize}
+}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2015 -- 2019}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}

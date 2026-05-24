@@ -1,0 +1,169 @@
+%% TEMPLATE: devops
+%% USE WHEN: Docker/K8s/cloud/infra/CI-CD dominant roles
+%% COMPILE WITH: pdflatex
+%%
+%% ── FILL VARIABLES ──────────────────────────────────────────────────────────
+\def\VarName{Full Name}
+\def\VarEmail{email@example.com}
+\def\VarPhone{+91 00000 00000}
+\def\VarLocation{City, Country}
+\def\VarRole{DevOps Engineer}
+\def\VarSummary{%
+  DevOps engineer with experience building and maintaining cloud infrastructure,
+  CI/CD pipelines, and observability systems using \VarTopSkills. Focused on
+  reliability, automation, and reducing toil for engineering teams.
+}
+\def\VarTopSkills{AWS, Kubernetes, Terraform}
+%% ────────────────────────────────────────────────────────────────────────────
+
+\documentclass[10pt, a4paper]{article}
+
+%% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lato}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+
+%% ── Page geometry ───────────────────────────────────────────────────────────
+\geometry{top=1.8cm, bottom=1.8cm, left=2cm, right=2cm}
+
+%% ── Font ────────────────────────────────────────────────────────────────────
+%% ── Accent color ────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1B2A4A}
+\definecolor{subtle}{HTML}{7F8C8D}
+
+%% ── Hyperlinks ──────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=accent, hidelinks}
+
+%% ── Section heading style ───────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-6pt}\textcolor{accent}{\rule{\linewidth}{0.4pt}}\vspace{2pt}]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+%% ── List style ──────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.2em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt
+}
+
+%% ── Helper commands ─────────────────────────────────────────────────────────
+
+\newcommand{\contactitem}[1]{\small #1}
+
+\newcommand{\workentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #3} \\
+    \textit{\small #2} &
+  \end{tabularx}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\newcommand{\eduentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textcolor{subtle}{\small #4} \\
+    \textit{\small #2} & \textcolor{subtle}{\small #3}
+  \end{tabularx}
+  \vspace{4pt}
+}
+
+\newcommand{\projectentry}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \href{#3}{\textcolor{subtle}{\small #3}}
+  \end{tabularx}
+  \vspace{1pt}
+  \textcolor{subtle}{\small \textit{#2}}
+  \vspace{1pt}
+  #4
+  \vspace{6pt}
+}
+
+\pagestyle{empty}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\begin{document}
+%% ═══════════════════════════════════════════════════════════════════════════
+
+%% ── Header ──────────────────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{accent} \VarName}\\[4pt]
+  {\small \VarRole}\\[6pt]
+  \contactitem{\VarEmail}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarPhone}
+  \quad\textcolor{subtle}{|}\quad
+  \contactitem{\VarLocation}
+\end{center}
+
+\vspace{4pt}
+\textcolor{accent}{\rule{\linewidth}{0.8pt}}
+\vspace{6pt}
+
+%% ── Summary ─────────────────────────────────────────────────────────────────
+\section{Summary}
+\VarSummary
+
+%% ── Skills ──────────────────────────────────────────────────────────────────
+%% NOTE: devops skills table emphasizes toolchain breadth — cloud, IaC, CI, observability
+\section{Skills}
+\noindent
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+  \textbf{Cloud}          & AWS (EC2, EKS, RDS, S3, Lambda, IAM), GCP \\[2pt]
+  \textbf{Containers}     & Docker, Kubernetes, Helm \\[2pt]
+  \textbf{IaC}            & Terraform, Ansible, CloudFormation \\[2pt]
+  \textbf{CI/CD}          & GitHub Actions, Jenkins, ArgoCD, GitLab CI \\[2pt]
+  \textbf{Observability}  & Prometheus, Grafana, ELK Stack, Datadog \\[2pt]
+  \textbf{Languages}      & Bash, Python, Go \\
+\end{tabularx}
+
+%% ── Work Experience ─────────────────────────────────────────────────────────
+%% NOTE: bullets must include uptime %, deployment frequency, MTTR, cost savings
+\section{Work Experience}
+\workentry{Company Name}{DevOps Engineer}{Mar 2021 -- Present}{%
+  \begin{itemize}
+    \item Maintained Kubernetes cluster of N nodes serving N microservices at 99.97\% uptime.
+    \item Built CI/CD pipelines reducing deployment time from 45min to 8min across 12 services.
+    \item Reduced AWS monthly spend by \$N through right-sizing and reserved instance planning.
+    \item Set up Prometheus + Grafana alerting stack, reducing MTTR from 3h to 25min.
+  \end{itemize}
+}
+
+\workentry{Previous Company}{Junior DevOps Engineer}{Jan 2019 -- Feb 2021}{%
+  \begin{itemize}
+    \item Containerized N legacy services using Docker, enabling consistent staging environments.
+    \item Automated infrastructure provisioning with Terraform, eliminating N hours of manual setup per sprint.
+  \end{itemize}
+}
+
+%% ── Projects ────────────────────────────────────────────────────────────────
+\section{Projects}
+%% NOTE: devops projects should demonstrate automation, scale, or reliability improvement
+\projectentry{Project Name}{Terraform, AWS, GitHub Actions}{https://github.com/username/repo}{%
+  \begin{itemize}
+    \item Provisioned full VPC + EKS cluster via Terraform in under 12 minutes end-to-end.
+    \item Implemented blue-green deployment strategy with zero-downtime rollouts.
+  \end{itemize}
+}
+
+%% ── Education ───────────────────────────────────────────────────────────────
+\section{Education}
+\eduentry{University Name}{B.Tech, Computer Science}{Completed}{2015 -- 2019}
+
+%% ═══════════════════════════════════════════════════════════════════════════
+\end{document}
