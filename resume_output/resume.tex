@@ -1,81 +1,91 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage[hidelinks]{hyperref}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{array}
-\usepackage{fontawesome5}
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[
+  top=0.55in, bottom=0.55in,
+  left=0.65in, right=0.65in
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{xcolor}
-\setlist[itemize]{noitemsep, topsep=0pt}
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{1a2e4a}
+
+\hypersetup{colorlinks=true, urlcolor=accent}
+\pagestyle{empty}
+
+\titleformat{\section}
+  {\color{accent}\large\bfseries}{}{0em}{}
+  [\titlerule]
+
+\setlength{\parindent}{0pt}
 
 \begin{document}
 
-\begin{center}
-{\LARGE Amrita Kadam}\\[4pt]
-\faEnvelope\ \href{mailto:meowmeow@gmail.com}{meowmeow@gmail.com}\quad
-\faPhone\ 890844568\quad
-\faMapMarker\ Mars\quad
-\faGithub\ \href{https://github.com/Amrita0205}{Amrita0205}
-\end{center}
-\vspace{0.2cm}
+%-------------------- HEADER --------------------
+{\LARGE\bfseries Mouli Ghosh}\\[3pt]
+{\small moulighosh2882003@gmail.com \ $|$ \ 9123928744 \ $|$ \ Raichur, India (Open to Bangalore) \ $|$ \ \href{https://github.com/mou288}{github.com/mou288}}
 
+\vspace{4pt}
+\hrule
+\vspace{6pt}
+
+%-------------------- SUMMARY --------------------
 \section*{Summary}
-Backend Developer
+Aspiring Machine Learning Engineer with hands-on experience in deep learning, computer vision, and LLM systems. Built projects involving LSTMs, YOLO-based detection, and LLM hallucination mitigation. Strong interest in developing real-world AI systems combining computer vision and NLP.
 
-\section*{Education}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{IIIT zhatu}, zhatuuuu in Inko bhi pta nahi??? \hfill Kab ka halt pe hai
-  \item \textbf{Bola toh idk}, zhatuuu in Inko bhi pta nahi \hfill completed
-\end{itemize}
-
-\section*{Work Experience}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{kuch nahi} — kuch nahi \hfill pta nahi
-  \begin{itemize}
-    \item achieve krne layak na parents na clg wale faculty chode hai
-  \end{itemize}
-\end{itemize}
-
-\section*{Projects}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{cs249r\_book}
-    \begin{itemize}
-      \item Introduction to Machine Learning Systems
-      \item Source: \url{https://github.com/Amrita0205/cs249r_book}
-    \end{itemize}
-  \item \textbf{swapit-voucher-exchange}
-    \begin{itemize}
-      \item A modern voucher exchange platform built with Next.js - Swap unused vouchers into what you actually need
-      \item Source: \url{https://github.com/Amrita0205/swapit-voucher-exchange}
-    \end{itemize}
-  \item \textbf{Updated\_skillscraper}
-    \begin{itemize}
-      \item Developed the Updated\_skillscraper repository.
-      \item Source: \url{https://github.com/Amrita0205/Updated_skillscraper}
-    \end{itemize}
-  \item \textbf{NSS\_club\_website}
-    \begin{itemize}
-      \item Developed the NSS\_club\_website repository.
-      \item Source: \url{https://github.com/Amrita0205/NSS_club_website}
-    \end{itemize}
-  \item \textbf{notebooks}
-    \begin{itemize}
-      \item A collection of tutorials on state-of-the-art computer vision models and techniques. Explore everything from foundational architectures like ResNet to cutting‑edge models like YOLO11, RT‑DETR, SAM 2, Florence‑2, PaliG...
-      \item Source: \url{https://github.com/Amrita0205/notebooks}
-    \end{itemize}
-  \item \textbf{MCPregistry}
-    \begin{itemize}
-      \item A community driven registry service for Model Context Protocol (MCP) servers.
-      \item Source: \url{https://github.com/Amrita0205/MCPregistry}
-    \end{itemize}
-\end{itemize}
-
+%-------------------- SKILLS --------------------
 \section*{Skills}
-\begin{tabular}{@{}l@{}}
-c\\
-Python\\
-TypeScript
-\end{tabular}
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+\textbf{Programming} & C, C++, Python \\
+\textbf{ML / AI} & CNNs, LSTMs, YOLO, Image Segmentation, Deep Learning \\
+\textbf{LLMs / NLP} & LLMs, Hallucination Detection, RAG \\
+\textbf{Tools} & OpenCV, PyTorch, TensorFlow, NumPy \\
+\end{tabularx}
+
+\vspace{6pt}
+
+%-------------------- PROJECTS --------------------
+\section*{Projects}
+
+\textbf{Agentic AI Career Advisor System}
+\begin{itemize}[leftmargin=*]
+\item Built a multi-agent AI system for resume generation, skill-gap analysis, and personalized learning path recommendation using LangGraph.
+\item Developed an adaptive interview engine with dynamic difficulty, RAG-based question generation with LLM fallback, and GitHub project–aware questioning for personalized evaluation.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{LSTM-based Sequence Prediction Model}
+\begin{itemize}[leftmargin=*]
+\item Implemented LSTM networks for sequence modeling tasks.
+\item Trained and evaluated model performance on sequence data.
+\item Gained hands-on experience with deep learning architectures and training pipelines.
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{LLM Hallucination Classifier \& Mitigation (Ongoing)}
+\begin{itemize}[leftmargin=*]
+\item Developing a system to detect hallucinations in LLM outputs using internal signals.
+\item Implementing mitigation using Retrieval-Augmented Generation (RAG).
+\item Focused on improving reliability and factual correctness of LLM responses.
+\end{itemize}
+
+%-------------------- EDUCATION --------------------
+\section*{Education}
+\textbf{B.Tech in Computer Science} \\
+Indian Institute of Information Technology (IIIT), Raichur \\
+Expected Graduation: 2027 \\
+CGPA: 7.49
+
+%-------------------- INTERESTS --------------------
+\section*{Interests}
+Artificial Intelligence, Machine Learning, Computer Vision, NLP, LLM Systems
 
 \end{document}
