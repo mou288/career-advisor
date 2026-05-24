@@ -259,7 +259,7 @@ def _fetch_jobs_jsearch(role: str, location: str, is_fresher: bool = False) -> l
             "title":           job.get("job_title", "N/A"),
             "company":         job.get("employer_name", "N/A"),
             "link":            job.get("job_apply_link") or job.get("job_google_link", "N/A"),
-            "location":        (job.get("job_city", "") + ", " + job.get("job_country", "")).strip(", ") or "N/A",
+            "location": f"{job.get('job_city') or ''}, {job.get('job_country') or ''}".strip(", ") or "N/A",
             "list_date":       job.get("job_posted_at_datetime_utc", "N/A"),
             "skills_required": final_skills,
             "seniority":       job.get("job_seniority_level") or "N/A",
